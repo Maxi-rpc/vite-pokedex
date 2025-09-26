@@ -19,7 +19,7 @@ const Home = () => {
       <div>
         <h2 className="text-xl font-semibold mt-4">Pokémon encontrados: {pokemons.length}</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          {pokemons.slice(0, 10).map((pokemon, idx) => (
+          {pokemons.slice(0, 12).map((pokemon, idx) => (
             <PokemonCard key={idx} name={pokemon.name} />
           ))}
         </div>

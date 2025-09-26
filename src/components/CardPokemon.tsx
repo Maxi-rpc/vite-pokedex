@@ -11,7 +11,12 @@ const CardPokemon = ({ name }: CardPokemonProps) => {
   useEffect(() => {
     async function fetchPokemon() {
       const res = await get_pokemon_thumbail_by_name(name);
-      setPokemon(res.datos);
+      if (res.status === 200 && res.data) {
+        console.log(res.data.name, res.data.sprites);
+        setPokemon(res.data);
+      } else {
+        console.error('No encontrado:', res.status, res.error);
+      }
     }
     fetchPokemon();
   }, [name]);
